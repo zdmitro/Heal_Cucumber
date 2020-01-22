@@ -4,4 +4,4 @@ target/
 node_modules/
 *.gitkeep
 .DS_Store
-/javacore/productiongit
+/javacore/productiongitg

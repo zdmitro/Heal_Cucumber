@@ -29,7 +29,8 @@ public abstract class BasePage {
 
     //wait visibility
     public void waitVisibility(By elementBy) {
-        this.wait.until(ExpectedConditions.visibilityOfElementLocated(elementBy));
+        WebDriverWait wait = new WebDriverWait(SharedSD.getDriver(), TIMEOUT, POLLING);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(elementBy));
     }
 
     public boolean isElementDisplayed(By elementBy) {
@@ -54,6 +55,15 @@ public abstract class BasePage {
             }
         }
         waitVisibility(elementBy);
+    }
+
+    /**
+     * Get current URL
+     */
+
+    public String getCurrentURL(By elementBy) {
+        waitVisibility(elementBy);
+        return SharedSD.getDriver().getCurrentUrl();
     }
 
     //click

@@ -11,8 +11,9 @@ public class LoginAssert {
 
     //Method which asserts
 
-    public void assertLoginPageIsOpened() {
-        Assert.assertEquals(SharedSD.getDriver().getCurrentUrl(), pr.getLoginPageURL());
+    public void assertLoginPageIsOpened() throws InterruptedException {
+        Thread.sleep(2000);
+        Assert.assertEquals(pr.getLoginPageURL(), loginPage.getCurrentURL(loginPage.getLoginEmailField()));
     }
 
     public void assertErrorMessageIsDisplayed(String message) {

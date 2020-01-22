@@ -18,17 +18,17 @@ public class LoginSD {
     private final LoginPage loginPage = new LoginPage();
 
     @Given("^Login Page is opened$")
-    public void loginPageIsOpened() {
+    public void loginPageIsOpened() throws InterruptedException {
         homePage.click(homePage.getLoginButton());
         loginAssert.assertLoginPageIsOpened();
     }
 
-    @When("^Login entered as \"([^\"]*)\"$")
+    @When("^Login entered as ([^\"]*)$")
     public void loginEnteredAs(String loginEmail) {
         this.loginPage.writeText(this.loginPage.getLoginEmailField(), loginEmail);
     }
 
-    @And("^Password entered as \"([^\"]*)\"$")
+    @And("^Password entered as ([^\"]*)$")
     public void passwordEnteredAs(String password) {
         this.loginPage.writeText(this.loginPage.getPasswordField(), password);
     }
